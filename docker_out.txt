@@ -1,0 +1,68 @@
+Sending build context to Docker daemon  1.031MB
+
+Step 1/8 : FROM python:3.7.11-stretch
+ ---> 09ae15ffaa31
+Step 2/8 : WORKDIR /app
+ ---> Using cache
+ ---> 84aeb4bb7391
+Step 3/8 : COPY app.py .
+ ---> Using cache
+ ---> 6123c2768f1f
+Step 4/8 : COPY requirements.txt .
+ ---> Using cache
+ ---> d2b93f9ac81f
+Step 5/8 : COPY model_data /app/model_data
+ ---> Using cache
+ ---> 450aa06f61a9
+Step 6/8 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> b9098d417dfe
+Step 7/8 : EXPOSE 80
+ ---> Using cache
+ ---> d0ce94dbca72
+Step 8/8 : CMD [ "python", "app.py" ]
+ ---> Using cache
+ ---> 79ff69589037
+Successfully built 79ff69589037
+Successfully tagged ducluanxutrieu/project-ml-microservice-k8s:latest
+REPOSITORY                                   TAG              IMAGE ID       CREATED          SIZE
+ducluanxutrieu/project-ml-microservice-k8s   latest           79ff69589037   12 minutes ago   1.16GB
+<none>                                       <none>           646df75bad87   41 minutes ago   1.16GB
+public.ecr.aws/sam/emulation-python3.9       latest-x86_64    a2f47bf1119a   12 days ago      508MB
+gcr.io/k8s-minikube/kicbase                  v0.0.39          67a4b1138d2d   13 days ago      1.05GB
+python                                       3.8              a865bc2909a4   3 weeks ago      906MB
+ubuntu                                       latest           08d22c0ceb15   5 weeks ago      77.8MB
+hadolint/hadolint                            latest           da13a5ec2e84   5 months ago     2.43MB
+python                                       3.7.11-stretch   09ae15ffaa31   20 months ago    904MB
+25d2f4817d146747b11ee0fcf47e852c155282cf48559088112588fb8059f0eb
+
+
+
+# prediction
+
+Port: 80
+{
+  "prediction": [
+    20.35373177134412
+  ]
+} * Serving Flask app "app" (lazy loading)
+
+
+#prediction logging
+
+
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 241-554-749
+[2023-04-17 09:38:43,894] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-04-17 09:38:43,915] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-04-17 09:38:43,930] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-04-17 09:38:43,935] INFO in app: Prediction output: 
+[20.35373177134412]
+172.17.0.1 - - [17/Apr/2023 09:38:43] "POST /predict HTTP/1.1" 200 -

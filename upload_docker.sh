@@ -5,10 +5,11 @@
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+dockerpath=ducluanxutrieu/project-ml-microservice-k8s
 
 # Step 2:  
 # Authenticate & tag
+docker login --username ducluanxutrieu -p $1
 echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
