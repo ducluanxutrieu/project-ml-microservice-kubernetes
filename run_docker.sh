@@ -10,4 +10,4 @@ docker build -t ducluanxutrieu/project-ml-microservice-k8s .
 docker images
 # Step 3: 
 # Run flask app
-docker run -d -p 80:80 ducluanxutrieu/project-ml-microservice-k8s
+docker run --name ml-k8s -d -p 8082:80 ducluanxutrieu/project-ml-microservice-k8s
