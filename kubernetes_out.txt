@@ -17,3 +17,15 @@ NAME                          READY   STATUS    RESTARTS   AGE
 pod/ml-k8s-759bc7bc5d-7wvdv   1/1     Running   0          6m28s
 Forwarding from 0.0.0.0:8082 -> 80
 Handling connection for 8082
+
+
+
+# prediction
+
+voclabs:~/environment/project-ml-microservice-kubernetes (main) $ ./make_prediction.sh 
+Port: 8082
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
