@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/ducluanxutrieu/project-ml-microservice-kubernetes)
 
 ## Project Overview
 
@@ -41,10 +41,18 @@ source .devops/bin/activate
 1. Standalone:  `python app.py`
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
+4. Run prediction: `./make_prediction.sh`
 
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
-* Create Flask app in Container
+* Create Machine Learning Microservice app in Container
 * Run via kubectl
+
+
+### A short explanation of the files in the repository.
+1. Makefile: Makefile is a way of automating software building procedure and other complex tasks with dependencies.
+2. requirements.txt: is a type of file that usually stores information about all the libraries, modules, and packages which are specific to project that are used while developing a particular project.
+3. Dockerfile: is a text document that contains all the commands a user could call on the command line to assemble an image.
+4. sh file: some shellscript to make our work better
